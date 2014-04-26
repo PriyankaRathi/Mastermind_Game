@@ -1,0 +1,14 @@
+<h1> Sorry... ! You lost the game </h1>
+<%= render 'new_game' %>
+<% correct_color_scheme = @game.target_guess_number.chars %>
+<table>
+  <tr>
+    <td> <%= image_tag ColorScheme.find_color(correct_color_scheme[0]), alt: ColorScheme.find_color(correct_color_scheme[0])%> </td>
+    <td> <%= image_tag ColorScheme.find_color(correct_color_scheme[1]), alt: ColorScheme.find_color(correct_color_scheme[1]) %> </td>
+    <td> <%= image_tag ColorScheme.find_color(correct_color_scheme[2]), alt: ColorScheme.find_color(correct_color_scheme[2]) %> </td>
+    <td> <%= image_tag ColorScheme.find_color(correct_color_scheme[3]), alt: ColorScheme.find_color(correct_color_scheme[3]) %> </td>
+    <td>
+      <p> Correct color scheme. </p> 
+    </td>   
+  </tr>
+</table>
