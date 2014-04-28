@@ -1,0 +1,10 @@
+This is a mastermind game.
+Before running you need to do some db setup.
+Need to add few records to db - 
+Script:
+
+ColorScheme.create!(color_id: 1, color_name: 'Red')
+ColorScheme.create!(color_id: 2, color_name: 'Blue')
+ColorScheme.create!(color_id: 3, color_name: 'Green')
+ColorScheme.create!(color_id: 4, color_name: 'Yellow')
+ColorScheme.create!(color_id: 5, color_name: 'Orange')
