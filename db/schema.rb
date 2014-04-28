@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424000101) do
+ActiveRecord::Schema.define(version: 20140427072549) do
 
   create_table "color_schemes", force: true do |t|
     t.integer  "color_id",   null: false
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20140424000101) do
   end
 
   create_table "games", force: true do |t|
-    t.string   "user",                            null: false
-    t.integer  "number_of_guesess",   default: 6, null: false
-    t.string   "target_guess_number",             null: false
+    t.string   "user",                               null: false
+    t.integer  "number_of_guesess",   default: 6,    null: false
+    t.string   "target_guess_number", default: "",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "allow_duplicates",    default: true
   end
 
   create_table "guesses", force: true do |t|

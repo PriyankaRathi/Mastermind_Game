@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe ColorScheme do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".find_color" do
+    let(:color) {"1"}
+    subject {ColorScheme.find_color(color)}
+    it { should eq 'Red.jpg'}
+  end
 end

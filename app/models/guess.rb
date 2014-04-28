@@ -1,7 +1,8 @@
 class Guess < ActiveRecord::Base
   belongs_to :game
+  LAST_COLOR_ID = ColorScheme.last.color_id
   validates :game_id, :first_color, :second_color, :third_color, :fourth_color , :presence => true
-  validates :first_color, :second_color, :third_color, :fourth_color , :format => {:with => /\A[1-5]\Z/}
+  validates :first_color, :second_color, :third_color, :fourth_color , :format => {:with => /\A[1-LAST_COLOR_ID]\Z/}
 
   def find_guessed_number
     @guess_number = self.first_color << self.second_color << self.third_color << self.fourth_color
@@ -18,6 +19,7 @@ class Guess < ActiveRecord::Base
   end
 
   def find_correct_at_wrong_postion_digit_count
+    find_correct_digits_index
     @correct_positions.each{|i| @guess_number[i] = '*'}
     game.target_guess_number.length.times.select do |i|
       @guess_number[@guess_number.index(game.target_guess_number[i])] = '*' if @guess_number.include?(game.target_guess_number[i]) && !@correct_positions.include?(i)

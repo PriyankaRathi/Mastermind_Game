@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(params[:game].permit(:user,:number_of_guesess))
+    @game = Game.new(params[:game].permit(:user, :number_of_guesess, :allow_duplicates))
     if @game.save
       redirect_to @game
     else
