@@ -24,6 +24,7 @@ describe Guess do
   
   describe "#find_correct_at_wrong_postion_digit_count" do
     let(:guess) {guesses(:guess_a)}
+    before { guess.find_correct_digits_count }
     subject {guess.find_correct_at_wrong_postion_digit_count}
 
     it { expect(subject).to eq 1}

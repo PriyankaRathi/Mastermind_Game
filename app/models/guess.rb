@@ -19,7 +19,7 @@ class Guess < ActiveRecord::Base
   end
 
   def find_correct_at_wrong_postion_digit_count
-    find_correct_digits_index
+    #find_correct_digits_index
     @correct_positions.each{|i| @guess_number[i] = '*'}
     game.target_guess_number.length.times.select do |i|
       @guess_number[@guess_number.index(game.target_guess_number[i])] = '*' if @guess_number.include?(game.target_guess_number[i]) && !@correct_positions.include?(i)
