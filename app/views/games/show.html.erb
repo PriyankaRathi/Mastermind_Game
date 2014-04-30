@@ -9,16 +9,16 @@
 </p>
 
 <% if @game.won? %>
-  <%= render 'won'%>
+  <%= render 'won' %>
 <% elsif @game.lost? %>
   <%= render 'lost' %>
 <% else %>
   Enter your guess:
   <%= form_for [@game, @game.guesses.build] do |f| %>
-    <%= f.select :first_color, ColorScheme.all.collect {|color| [color.color_name , color.color_id]} %>
-    <%= f.select :second_color, ColorScheme.all.collect {|color| [color.color_name , color.color_id]} %>
-    <%= f.select :third_color, ColorScheme.all.collect {|color| [color.color_name , color.color_id]} %>
-    <%= f.select :fourth_color, ColorScheme.all.collect {|color| [color.color_name , color.color_id]} %>
+    <%= f.select :first_color, ColorScheme.all.collect {|color| [color.color_name, color.color_id]} %>
+    <%= f.select :second_color, ColorScheme.all.collect {|color| [color.color_name, color.color_id]} %>
+    <%= f.select :third_color, ColorScheme.all.collect {|color| [color.color_name, color.color_id]} %>
+    <%= f.select :fourth_color, ColorScheme.all.collect {|color| [color.color_name, color.color_id]} %>
     <%= f.submit "Submit" %>
   <% end %>
 <% end %>

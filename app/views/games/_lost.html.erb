@@ -4,8 +4,7 @@
 <table>
   <tr>
     <% correct_color_scheme.each do |color| %>
-      <td> <%= image_tag ColorScheme.find_color(color), alt: ColorScheme.find_color(color)%>
-      </td>
+      <td> <%= image_tag ColorScheme.color_image_name_from_color_id(color), alt: ColorScheme.color_image_name_from_color_id(color) %> </td>
     <% end %>
     <td>
       <p> Correct color scheme. </p> 

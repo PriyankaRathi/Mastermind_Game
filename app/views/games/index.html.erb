@@ -11,16 +11,16 @@
 <%= form_for @game do |f| %>
   <div>
     <p>
-      <%= f.label :user,"Name" %>
+      <%= f.label :user, "Name" %>
       <%= f.text_field :user %>
     </p>
     <p>
       <%= f.label :number_of_guesess, "Select number of guesses" %>
-      <%= f.select :number_of_guesess , (2..8).each.select {|num| num if num % 2 == 0}.to_a %>
+      <%= f.select :number_of_guesess, (2..8).each.select {|num| num if num % 2 == 0}.to_a %>
     </p>
     <p> 
       <%= f.label :allow_duplicates, "Allow Duplicates" %> 
-      <%= f.check_box :allow_duplicates%>
+      <%= f.check_box :allow_duplicates %>
     </p>
   </div>
   <%= f.submit "Start Game" %>

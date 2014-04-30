@@ -3,10 +3,7 @@ MastermindGame::Application.routes.draw do
   resources :games , :only => [:index, :show, :create] do
     resources :guesses , :only => [:create] 
   end
-  #resources :color_schemes
-  #resources :guesses do
-  #  resources :color_schemes
-  #end
+  
   root 'games#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

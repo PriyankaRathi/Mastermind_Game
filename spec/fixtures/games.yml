@@ -15,3 +15,9 @@ game3:
   number_of_guesess: 4
   target_guess_number: "1112"
   allow_duplicates: true
+
+game4:
+  user: Priyanka
+  number_of_guesess: 4
+  target_guess_number: "3113"
+  allow_duplicates: true

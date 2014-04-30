@@ -4,7 +4,7 @@ describe GamesController do
   render_views
 
   shared_examples_for "all pages" do
-    subject{ get template}
+    subject { get template }
     it { should be_success }
     it { should render_template(template) }
   end
@@ -19,16 +19,13 @@ describe GamesController do
 
     context "when used /games renders index template" do
       it_should_behave_like "all pages"
-      #it { expect(response.status).to eq(200) }
     end
     
   end
 
   describe "#create" do
     it "creates a new game" do
-      expect { 
-        post :create, :game => {:user => "Priyanka", :number_of_guesess => 4 , :allow_duplicates => true}
-      }.to change { Game.count }.by(1)
+      expect { post :create, :game => { :user => "Priyanka", :number_of_guesess => 4, :allow_duplicates => true } }.to change { Game.count }.by(1)
 
       game = Game.last
       expect(response).to redirect_to(game_path(game))

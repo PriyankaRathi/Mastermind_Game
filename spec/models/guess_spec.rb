@@ -1,33 +1,47 @@
 require 'spec_helper'
 
 describe Guess do
-  describe "#find_guessed_number" do
-    let(:guess) {guesses(:guess_a)}
-    subject {guess.find_guessed_number}
+  describe "#guessed_number" do
+    let(:guess) { guesses(:guess_a) }
+    subject { guess.guessed_number }
 
-    it { expect(subject).to eq "2221"}
+    it { expect(subject).to eq "2221" }
   end
 
-  describe "#find_correct_digits_index" do
-    let(:guess) {guesses(:guess_a)}
-    subject {guess.find_correct_digits_index}
+  describe "#correct_digits_index" do
+    let(:guess) { guesses(:guess_a) }
+    subject { guess.correct_digits_index }
 
-    it { expect(subject).to eq [1]}
+    it { expect(subject).to eq [1] }
   end
 
-  describe "#find_correct_digits_count" do
-    let(:guess) {guesses(:guess_a)}
-    subject {guess.find_correct_digits_count}
+  describe "#correct_digits_count" do
+    subject { guess.correct_digits_count }
 
-    it { expect(subject).to eq 1}
+    context "when guessed guess_a" do
+      let(:guess) { guesses(:guess_a) }
+      it { expect(subject).to eq 1 }
+    end
+
+    context "when guessed guess_i" do
+      let(:guess) { guesses(:guess_i) }
+      it { expect(subject).to eq 3 }
+    end
   end
   
-  describe "#find_correct_at_wrong_postion_digit_count" do
-    let(:guess) {guesses(:guess_a)}
-    before { guess.find_correct_digits_count }
-    subject {guess.find_correct_at_wrong_postion_digit_count}
+  describe "#correct_at_wrong_postion_digit_count" do
+    before { guess.correct_digits_count }
+    subject { guess.correct_at_wrong_postion_digit_count }
 
-    it { expect(subject).to eq 1}
+    context "when guessed guess_a" do
+      let(:guess) { guesses(:guess_a) }
+      it { expect(subject).to eq 1 }
+    end
+
+    context "when guessed guess_i" do
+      let(:guess) { guesses(:guess_i) }
+      it { expect(subject).to eq 0 }
+    end
   end
 
 end
